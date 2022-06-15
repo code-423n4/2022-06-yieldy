@@ -1,0 +1,414 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "StakingStorage",
+  "sourceName": "src/contracts/StakingStorage.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "BASIS_POINTS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "COW_RELAYER",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "COW_SETTLEMENT",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "CURVE_POOL",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "FEE_ADDRESS",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LIQUIDITY_RESERVE",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "STAKING_TOKEN",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKE_MANAGER",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKE_POOL",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKE_REWARD",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKE_TOKEN",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "YIELDY_TOKEN",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "affiliateFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "coolDownInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "credits",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "coolDownPeriod",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "curvePoolFrom",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "curvePoolTo",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "epoch",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "number",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "distribute",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isInstantUnstakingPaused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isStakingPaused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isUnstakingPaused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastTokeCycleIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "requestWithdrawalAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timeLeftToRequestWithdrawal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "warmUpInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "credits",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "warmUpPeriod",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawalAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061058f806100206000396000f3fe608060405234801561001057600080fd5b50600436106101b95760003560e01c8063823a46a1116100f9578063e1f1c4a711610097578063eb1edd6111610071578063eb1edd61146104a9578063f3bff592146104c9578063f8aeccbd146104d6578063fd5dcab8146104f657600080fd5b8063e1f1c4a714610477578063e2a8179d14610480578063e6e268f4146104a057600080fd5b80639776cb78116100d35780639776cb781461043c578063b09881cc14610445578063ba818f8d14610465578063c9d4f3501461046e57600080fd5b8063823a46a1146103d157806386a8b4b5146103da578063900cf0cf146103fa57600080fd5b806325126a2c1161016657806333e3544a1161014057806333e3544a14610327578063743202251461035b5780637a0ecaeb1461037b578063820c6f5b146103a257600080fd5b806325126a2c146102de57806328ebcda1146102fe57806330f1ebb91461031e57600080fd5b8063156c46bf11610197578063156c46bf146102485780631b618cc01461025f5780631ea7ca89146102a957600080fd5b80630479d644146101be578063050c486c146102085780631078167914610228575b600080fd5b6003546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020015b60405180910390f35b6005546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b6000546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160125481565b6040519081526020016101ff565b61028e61026d36600461051c565b60116020526000908152604090208054600182015460029092015490919083565b604080519384526020840192909252908201526060016101ff565b600a546102ce9074010000000000000000000000000000000000000000900460ff1681565b60405190151581526020016101ff565b6004546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b6006546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160145481565b601954610348907001000000000000000000000000000000009004600f0b81565b604051600f9190910b81526020016101ff565b6009546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600a546102ce90760100000000000000000000000000000000000000000000900460ff1681565b61028e6103b036600461051c565b60106020526000908152604090208054600182015460029092015490919083565b61025160155481565b6008546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600b54600c54600d54600e54600f54610414949392919085565b604080519586526020860194909452928401919091526060830152608082015260a0016101ff565b61025160135481565b6002546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160185481565b61025160175481565b61025161271081565b6001546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160165481565b6007546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b60195461034890600f0b81565b600a546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600a546102ce907501000000000000000000000000000000000000000000900460ff1681565b60006020828403121561052e57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461055257600080fd5b939250505056fea264697066735822122010af319d1bfb020828bb68300c93fa0bb42d7b2d1ae9399a69061d0836cc2ca164736f6c63430008090033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101b95760003560e01c8063823a46a1116100f9578063e1f1c4a711610097578063eb1edd6111610071578063eb1edd61146104a9578063f3bff592146104c9578063f8aeccbd146104d6578063fd5dcab8146104f657600080fd5b8063e1f1c4a714610477578063e2a8179d14610480578063e6e268f4146104a057600080fd5b80639776cb78116100d35780639776cb781461043c578063b09881cc14610445578063ba818f8d14610465578063c9d4f3501461046e57600080fd5b8063823a46a1146103d157806386a8b4b5146103da578063900cf0cf146103fa57600080fd5b806325126a2c1161016657806333e3544a1161014057806333e3544a14610327578063743202251461035b5780637a0ecaeb1461037b578063820c6f5b146103a257600080fd5b806325126a2c146102de57806328ebcda1146102fe57806330f1ebb91461031e57600080fd5b8063156c46bf11610197578063156c46bf146102485780631b618cc01461025f5780631ea7ca89146102a957600080fd5b80630479d644146101be578063050c486c146102085780631078167914610228575b600080fd5b6003546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020015b60405180910390f35b6005546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b6000546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160125481565b6040519081526020016101ff565b61028e61026d36600461051c565b60116020526000908152604090208054600182015460029092015490919083565b604080519384526020840192909252908201526060016101ff565b600a546102ce9074010000000000000000000000000000000000000000900460ff1681565b60405190151581526020016101ff565b6004546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b6006546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160145481565b601954610348907001000000000000000000000000000000009004600f0b81565b604051600f9190910b81526020016101ff565b6009546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600a546102ce90760100000000000000000000000000000000000000000000900460ff1681565b61028e6103b036600461051c565b60106020526000908152604090208054600182015460029092015490919083565b61025160155481565b6008546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600b54600c54600d54600e54600f54610414949392919085565b604080519586526020860194909452928401919091526060830152608082015260a0016101ff565b61025160135481565b6002546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160185481565b61025160175481565b61025161271081565b6001546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b61025160165481565b6007546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b60195461034890600f0b81565b600a546101de9073ffffffffffffffffffffffffffffffffffffffff1681565b600a546102ce907501000000000000000000000000000000000000000000900460ff1681565b60006020828403121561052e57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461055257600080fd5b939250505056fea264697066735822122010af319d1bfb020828bb68300c93fa0bb42d7b2d1ae9399a69061d0836cc2ca164736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

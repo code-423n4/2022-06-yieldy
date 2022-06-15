@@ -1,0 +1,102 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "LiquidityReserveStorage",
+  "sourceName": "src/contracts/LiquidityReserveStorage.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "BASIS_POINTS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MINIMUM_LIQUIDITY",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isReserveEnabled",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610188806100206000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c8063ddca3f431161005b578063ddca3f4314610100578063e1f1c4a714610109578063ee99205c14610112578063f7c618c11461013257600080fd5b80632dd2f33c1461008257806372f702f3146100a4578063ba9a7a56146100e9575b600080fd5b60045461008f9060ff1681565b60405190151581526020015b60405180910390f35b6000546100c49073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161009b565b6100f26103e881565b60405190815260200161009b565b6100f260035481565b6100f261271081565b6002546100c49073ffffffffffffffffffffffffffffffffffffffff1681565b6001546100c49073ffffffffffffffffffffffffffffffffffffffff168156fea264697066735822122082f59fa718e82e008a14042b832ed72b59c7f872b919590a23f0320b2c9a416964736f6c63430008090033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c8063ddca3f431161005b578063ddca3f4314610100578063e1f1c4a714610109578063ee99205c14610112578063f7c618c11461013257600080fd5b80632dd2f33c1461008257806372f702f3146100a4578063ba9a7a56146100e9575b600080fd5b60045461008f9060ff1681565b60405190151581526020015b60405180910390f35b6000546100c49073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161009b565b6100f26103e881565b60405190815260200161009b565b6100f260035481565b6100f261271081565b6002546100c49073ffffffffffffffffffffffffffffffffffffffff1681565b6001546100c49073ffffffffffffffffffffffffffffffffffffffff168156fea264697066735822122082f59fa718e82e008a14042b832ed72b59c7f872b919590a23f0320b2c9a416964736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
