@@ -133,6 +133,12 @@ This contract inherits the following OZ contracts:
 - ERC20Upgradeable.sol - only two lines are differen from the OZ version.  Made _allowances and _totalSupply internal instead of private.
 - ERC20PermitUpgradeable.sol - based of OZ's (token/ERC20/extensions/draft-ERC20Permit.sol).  Changed to use our own ERC20Upgradeable.sol
 
+## Potential Protocol concerns
+
+### Trust Model
+
+The owner of these contracts will be the ShapeShift DAO's multisig.  The DAO must be considered a trusted party for these contracts to be valid, otherwise the TOKE rewards could be stolen.  Also, because these contracts are upgradeable, there is potential for future vulnerabilites to be implemented
+
 ## Local development
 
 ### Run Tests

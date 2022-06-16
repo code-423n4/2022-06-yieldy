@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+artifacts/
+coverage.json
+.DS_Store
+./src/.DS_Store

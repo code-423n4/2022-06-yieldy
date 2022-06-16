@@ -1,3 +1,0 @@
-1. add back in two step ownership?
-1. Should vesting be upgradeable?
-1. Testing around non 18 decimal tokens!
