@@ -69,12 +69,13 @@ This repo will be made public before the start of the contest. (C4 delete this l
 
 ## Protocol overview
 
-Yieldy is a protocol that enables multiple rebasing tokens that allows for single sided staking with compounding interest through the use of investing in Tokemak.
+Yieldy is a protocol that creates a rebasing token for assets that have a Tokemak reactor.  For each asset that Tokemak supports, we can create a Yieldy token for that asset.  For instance, for USDC we will create USDCy, Fox will have a FOXy and so on.  This allows for single sided staking with compounding interest through the use of depositing into Tokemak reactors.
+
 Yieldy is based on a previous set of contracts we completed called FOXy.  Find out more on FOXy here: https://github.com/shapeshift/foxy
 
 These contracts can be used with any asset that Tokemak supports on the Ethereum network.
 
-When a user stakes a token to the Yieldy Staking smart contract, the contract invests the staking token into Tokemak.  Once this happens a new yieldy token is minted to the user that is represented 1:1 to the staking asset. Tokemak is currently on week long reward cycles, and once TOKE rewards are generated we can claim the rewards to the Staking contract.  Once the rewards are in the staking contract, the contract owners can either manually or automatically convert the TOKE rewards into the staking asset and stake them back into the system for a future rebase.
+When a user stakes a token to the Yieldy Staking smart contract, the contract invests the staking token into Tokemak.  Once this happens a new yieldy token is minted to the user which is represented 1:1 to the staking asset. Tokemak is currently on week long reward cycles, and once TOKE rewards are generated we can claim the rewards to the Staking contract.  Once the rewards are in the staking contract, the contract owners can either manually or automatically convert the TOKE rewards into the staking asset and stake them back into the system for a future rebase.  When the smart contract has extra tokens from rewards and a rebase occurs, the rewards are distributed to all holders and the balance of their yieldy token increases directly in their wallet.  Rebases can only go up, never down.
 
 Currently, it takes a full cycles to unstake from Tokemak, so to unstake through the Yieldy protocol it can take some time.  We solved this issue in two ways.  The first way was to utilize the LiquidityReserve contract to enable single sided staking where users can gain fees from providing liquidity for instant unstaking.  The second way we solved this problem was to implement Curve and trade directly from the yieldy token to the staking asset.  This will work for assets that have liquidity for their yieldy counterpart on Curve, but if not, we have the LiquidityReserve to fall back on.
 
