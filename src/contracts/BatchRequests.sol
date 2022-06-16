@@ -12,12 +12,16 @@ contract BatchRequests is Ownable {
         @notice sendWithdrawalRequests on all addresses in contracts
      */
     function sendWithdrawalRequests() external {
-        for (uint256 i = 0; i < contracts.length; i++) {
+        uint256 contractsLength = contracts.length;
+        for (uint256 i; i < contractsLength; ) {
             if (
                 contracts[i] != address(0) &&
                 IStaking(contracts[i]).canBatchTransactions()
             ) {
                 IStaking(contracts[i]).sendWithdrawalRequests();
+            }
+            unchecked {
+                ++i;
             }
         }
     }
@@ -27,10 +31,14 @@ contract BatchRequests is Ownable {
         @return (address, bool)[]
      */
     function canBatchContracts() external view returns (Batch[] memory) {
-        Batch[] memory batch = new Batch[](contracts.length);
-        for (uint256 i = 0; i < contracts.length; i++) {
+        uint256 contractsLength = contracts.length;
+        Batch[] memory batch = new Batch[](contractsLength);
+        for (uint256 i; i < contractsLength; ) {
             bool canBatch = IStaking(contracts[i]).canBatchTransactions();
             batch[i] = Batch(contracts[i], canBatch);
+            unchecked {
+                ++i;
+            }
         }
         return batch;
     }
@@ -79,9 +87,13 @@ contract BatchRequests is Ownable {
         @param _address - address to remove
      */
     function removeAddress(address _address) external onlyOwner {
-        for (uint256 i = 0; i < contracts.length; i++) {
+        uint256 contractsLength = contracts.length;
+        for (uint256 i; i < contractsLength; ) {
             if (contracts[i] == _address) {
                 delete contracts[i];
+            }
+            unchecked {
+                ++i;
             }
         }
     }

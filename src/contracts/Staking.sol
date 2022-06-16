@@ -8,7 +8,6 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "./LiquidityReserve.sol";
 import "./StakingStorage.sol";
 import "../interfaces/IYieldy.sol";
-import "../interfaces/IVesting.sol";
 import "../interfaces/ITokeManager.sol";
 import "../interfaces/ITokePool.sol";
 import "../interfaces/ITokeReward.sol";

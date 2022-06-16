@@ -6,5 +6,5 @@ interface ILiquidityReserve {
 
     function setFee(uint256 _fee) external;
 
-    function initialize(address _stakingContract) external;
+    function enableLiquidityReserve(address _stakingContract) external;
 }

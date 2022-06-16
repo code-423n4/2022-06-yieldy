@@ -7,12 +7,14 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeab
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 import "../interfaces/IStaking.sol";
+import "../interfaces/ILiquidityReserve.sol";
 import "./LiquidityReserveStorage.sol";
 
 contract LiquidityReserve is
     LiquidityReserveStorage,
     ERC20Upgradeable,
-    OwnableUpgradeable
+    OwnableUpgradeable,
+    ILiquidityReserve
 {
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
