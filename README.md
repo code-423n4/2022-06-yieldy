@@ -7,8 +7,6 @@
 - Starts June 21, 2022 20:00 UTC
 - Ends June 26, 2022 19:59 UTC
 
-This repo will be made public before the start of the contest. (C4 delete this line when made public)
-
 ## Glossary
 
 | Name | Description |
@@ -68,7 +66,7 @@ Will be used to migrate FOXy into a Yieldy asset.
 
 ### LiquidityReserve (154 sloc)
 
-Single sided staking contract that allos for users to add tokens to provide liquidity for the Staking contract to allow users to instantly unstake vs having to wait on Tokemaks cycles to clear before allowing users to get their funds.
+Single sided staking contract that allows for users to add tokens to provide liquidity for the Staking contract to allow users to instantly unstake vs having to wait on Tokemaks cycles to clear before allowing users to get their funds.
 
 This contract inherits the following OZ contracts:
 - "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
