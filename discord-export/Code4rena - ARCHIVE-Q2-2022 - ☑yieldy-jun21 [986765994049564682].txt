@@ -1,0 +1,621 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q2-2022 / ☑yieldy-jun21
+==============================================================
+
+[06/15/2022 11:00 PM] kartoonjoy
+👋 Hello and welcome to the contest channel for the $50K USDC **Yieldy** contest!
+
+📆 Contest opens 06/21/2022 8:00 PM (20:00 UTC) and runs through 06/26/2022 7:59 PM (19:59 UTC) (5 days).
+
+Please give a warm welcome to the Yieldy team, particularly @Toshi, @willyfox, @ETH1Elohim, and @0xean, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-06-yieldy-contest
+
+{Embed}
+https://code4rena.com/contests/2022-06-yieldy-contest
+Code4rena Yieldy contest
+$50,000 USDC
+21 June 2022—26 June 2022
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+yay_fox (5) foxy (2) party_fox (2) VibingFox2Party (5) HACKERMANS (4) 🎉 (2) 
+
+[06/22/2022 12:44 PM] 0xean
+@0xleastwood @JtP | WATCHPUG @Ming | WATCHPUG @IllIllI  would love you guys to participate as wardens if you have some time on this one!
+
+
+[06/23/2022 8:56 AM] bernd_42
+Could you please explain how Cow Protocol is used within Yieldy? Thanks!
+
+
+[06/23/2022 11:12 AM] ak19966
+The second way we solved this problem was to implement Curve and trade directly from the yieldy token to the staking asset. This will work for assets that have liquidity for their yieldy counterpart on Curve, but if not, we have the LiquidityReserve to fall back on.
+
+
+[06/23/2022 11:13 AM] ak19966
+I am wondering what sort of benifit can user get because of this.. can you pls put some more lights on this
+
+
+[06/23/2022 12:01 PM] 0xean
+Yup, cowswap can used to swap TOKE rewards to the staking token
+
+{Reactions}
+👍 
+
+[06/23/2022 12:04 PM] 0xean
+Let's talk about FOX as an example token.  Currently if you stake for FOX, and then want to unstake your fox, you have a 7-14 day window in which that FOX will become claimable due to tokemak's cycles.  So you lose the ability to get immediate liquidity if you need it.
+
+The LiquidityReserve allows a user to instant unstake and avoid this cool down period for a fee. Alternatively, if the staking token and the tAsset (from tokemak) have a curve pool we can allow the user to swap there for immediate liquidity instead.
+
+
+[06/23/2022 12:13 PM] ak19966
+However user should have reserve in the liquidity.. then only they can unstake it before maturity.. if user has reserve they are going to use it .. then why they want to go for unstake
+
+
+[06/23/2022 12:14 PM] m4rio.eth
+hey, `ITokePool` it's what contract?
+
+
+[06/23/2022 12:14 PM] m4rio.eth
+as it's not in the scope but would love to see what requestedWithdrawals does
+
+
+[06/23/2022 12:24 PM] 0xean
+I am not sure I understand your question, can you rephrase it maybe?
+
+
+[06/23/2022 12:24 PM] 0xean
+yea, thats from tokemak, let me see if I can find a link.
+
+
+[06/23/2022 12:25 PM] 0xean
+https://github.com/Tokemak/tokemak-smart-contracts-public/blob/d4687c5fd1c852852a8dac90ee627ac6bdb74bc0/contracts/pools/Pool.sol#L128 
+I believe this is it, but lets get @Toshi  to confirm as the author of these smart contracts.
+
+{Embed}
+https://github.com/Tokemak/tokemak-smart-contracts-public/blob/d4687c5fd1c852852a8dac90ee627ac6bdb74bc0/contracts/pools/Pool.sol
+tokemak-smart-contracts-public/Pool.sol at d4687c5fd1c852852a8dac90...
+A public repo of Tokemak's currently deployed contracts. - tokemak-smart-contracts-public/Pool.sol at d4687c5fd1c852852a8dac90ee627ac6bdb74bc0 · Tokemak/tokemak-smart-contracts-public
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/tokemak-smart-contracts-public-92905
+
+
+[06/23/2022 12:25 PM] m4rio.eth
+awesome, thank you
+
+
+[06/23/2022 12:26 PM] ak19966
+If user want to unstake then they have to use the token from reserve and go for unstakking. In what way it could be benifit them.. ?
+
+
+[06/23/2022 12:28 PM] 0xean
+In the "normal" flow,  a user has to wait 7-14 days to unstake
+In the liquidity reserve flow, a user can unstake immediately.
+
+
+[06/23/2022 12:28 PM] 0xean
+the benefit is immediate liquidity
+
+
+[06/23/2022 1:02 PM] ak19966
+But.. user is going to use the asset from liquidity right..
+
+
+[06/23/2022 1:02 PM] ak19966
+Even can they withdraw from liquidity reseve?
+
+
+[06/23/2022 1:08 PM] 0xean
+hmmm, I still dont understand what you mean here.
+
+Real world example.  
+
+A user stakes FOX and gets FOXy, later they want immediate liquidity and cannot wait 7-14 days. They call instantUnstake and swap their FOXy for FOX (less a fee).
+
+
+[06/23/2022 1:23 PM] Toshi#4576
+Correct! This is the  ITokePool contract
+
+
+[06/23/2022 1:36 PM] ak19966
+Got it... Tnq
+
+
+[06/23/2022 1:57 PM] m4rio.eth
+Hey,
+another question:
+who sets the epoch time on the Staking contract?
+
+
+[06/23/2022 3:15 PM] Toshi#4576
+The owner of the contracts set it
+
+
+[06/23/2022 5:35 PM] m4rio.eth
+another question: 
+who is IStaking from the migrator?
+
+
+[06/23/2022 5:35 PM] m4rio.eth
+it's an old staking contract?
+
+
+[06/23/2022 5:58 PM] 0xean
+yes, that is correct.... the existing staking contract for FOX(y)
+
+
+[06/23/2022 5:58 PM] 0xean
+we will eventually migrate holders of FOXy to the new contracts
+
+
+[06/23/2022 6:07 PM] m4rio.eth
+can i get that contract as well? so we can see how it behaves?
+
+
+[06/23/2022 8:19 PM] Toshi#4576
+here is the current staking contract
+
+{Reactions}
+pepeSalute 
+
+[06/23/2022 8:19 PM] Toshi#4576
+https://etherscan.io/address/0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b
+
+{Embed}
+https://etherscan.io/address/0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b
+Staking | Address 0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b | Ethe...
+The Contract Address 0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/etherscan-logo-circle-A29B1.jpg
+
+
+[06/23/2022 8:23 PM] m4rio.eth
+sent a friend request, will dm you for some stuff ser
+
+{Reactions}
+👍 
+
+[06/24/2022 4:09 AM] tchkvsky
+What does "WAD" stand for??
+
+
+[06/24/2022 7:44 AM] 0x1f8b
+`Staking.sol` is IStaking or IStakingV1 ?
+
+
+[06/24/2022 8:20 AM] 0xleastwood
+`wad` just represents a number with 18 decimals
+
+
+[06/24/2022 8:23 AM] tchkvsky
+Thanks @0xleastwood. I saw the declaration. I was just thinking if it was an acronym for sth
+
+
+[06/24/2022 8:26 AM] 0xleastwood
+AFAIK, I don't think it is an acronym for anything. I could be wrong though. Dapp-tools came up with the term, so it could be documented somewhere by them.
+
+
+[06/24/2022 8:28 AM] tchkvsky
+Ah. Thanks for clearing that up
+
+
+[06/24/2022 11:33 AM] illilli000
+https://ethereum.stackexchange.com/a/87690 has a link to dapp-tools readme where it's mentioned
+
+{Reactions}
+thankyou 
+
+[06/24/2022 12:17 PM] 0xean
+IStaking
+
+
+[06/24/2022 3:45 PM] Toshi#4576
+https://etherscan.io/address/0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b This is the contract that contains the logic for IStakingV1
+
+{Embed}
+https://etherscan.io/address/0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b
+Staking | Address 0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b | Ethe...
+The Contract Address 0xee77aa3Fd23BbeBaf94386dD44b548e9a785ea4b page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/etherscan-logo-circle-A29B1.jpg
+
+{Reactions}
+👍 (2) 
+
+[06/24/2022 6:55 PM] shung69
+Have I got these right?
+
+`TOKE_TOKEN`:  The reward token you get during staking `STAKING_TOKEN` in the `TOKE_POOL`.
+`TOKE_POOL`: The address where you deposit `STAKING_TOKEN` to earn `TOKE_TOKEN`. It is also a receipt token representing the `STAKING_TOKEN`.
+`TOKE_MANAGER`: An address that provides view functions regarding `TOKE_POOL` information.
+`TOKE_REWARD`: A separate contract you use to claim `TOKE_TOKEN` rewards that were earned by staking to `TOKE_POOL`.
+`CURVE_POOL`: A Curve pool whose pair tokens are `TOKE_POOL` and `STAKING_TOKEN`
+`COW_SETTLEMENT`: A contract that instructs `COW_RELAYER` to swap `TOKE_TOKEN` for `STAKING_TOKEN`
+`COW_RELAYER`: A contract that swaps `TOKE_TOKEN` for `STAKING_TOKEN`
+
+
+[06/24/2022 9:21 PM] Toshi#4576
+You got it!  Interesting, I'm integrating pangolin into thorchain right now 🙂
+
+{Reactions}
+👀 
+
+[06/25/2022 2:36 AM] elku.cryptos
+"The owner of these contracts will be the ShapeShift DAO's multisig. "
+
+Does this mean that the onlyOwner modifier points to a multisig? for example in staking.sol.
+
+
+[06/25/2022 5:31 AM] Toshi#4576
+Correct
+
+
+[06/25/2022 11:54 AM] elku.cryptos
+the scope is limited to just the 5 contracts mentioned here right?
+https://github.com/code-423n4/2022-06-yieldy#smart-contracts
+
+
+[06/25/2022 12:11 PM] illilli000
+are the owner dao operations behind a timelock?
+
+
+[06/25/2022 2:03 PM] 0xean
+They are DAO operations, no timelock in place currently.  The DAO has a ~3 week ish governance process at a minimum, but I think calling out the lack of timelock is fair game.
+
+{Reactions}
+thankyou 
+
+[06/25/2022 2:04 PM] 0xean
+yup
+
+
+[06/25/2022 4:04 PM] Toshi#4576
+I posted the Staking v1 contract, but I also wanted to post the LiquidityReserve contract so people can see where the instantUnstaking will come from https://etherscan.io/address/0x8EC637Fe2800940C7959f9BAd4fE69e41225CD39
+
+{Embed}
+https://etherscan.io/address/0x8EC637Fe2800940C7959f9BAd4fE69e41225CD39
+LiquidityReserve | Address 0x8EC637Fe2800940C7959f9BAd4fE69e41225CD...
+The Contract Address 0x8EC637Fe2800940C7959f9BAd4fE69e41225CD39 page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/etherscan-logo-circle-A29B1.jpg
+
+
+[06/25/2022 5:13 PM] stermi
+@Toshi to run local test present in the `/test` do I need to setup a main net fork?
+
+
+[06/25/2022 5:15 PM] stermi
+could you provide a step-by-step to run `yarn test` sucessfully?
+
+
+[06/25/2022 5:55 PM] Toshi#4576
+You should copy the sample env file to a .env file then run `yarn` followed by `yarn compile` and then `yarn test`
+
+
+[06/26/2022 6:52 AM] un_for_given
+@Toshi is it possible to extend contest for couple of hours so we can report our findings?
+
+{Reactions}
+👎 (2) 
+
+[06/26/2022 6:54 AM] Toshi#4576
+I will talk to the C4 team to see if that's acceptable, but from my standpoint I would be willing to do that
+
+
+[06/26/2022 7:12 AM] 0x1f8b
+it is beginning to become a common practice to extend the contests, and some of us adjust to the established time.  I personally believe that it should only be done if a large majority asks for it, or at the beginning.
+
+
+[06/26/2022 7:14 AM] 0x1f8b
+Still 12 hours for reporting, go for it 💪
+
+
+[06/26/2022 7:29 AM] un_for_given
+Yes I know but one need to prepare for the worst and hope for the best😃
+The problem is at the beginning we don't know how many issue we are going to report.
+
+
+[06/26/2022 7:30 AM] ak19966
+tats the competition...!!!
+
+{Reactions}
+💯 
+
+[06/26/2022 8:02 AM] illilli000
+yeah, it's unfair for others that rush to submit for the stated deadline and potentially miss things
+
+{Reactions}
+💯 (2) 
+
+[06/26/2022 8:42 AM] 0x1f8b
+Be prepared for the worst is not reporting in the last hours
+
+
+[06/26/2022 9:14 AM] un_for_given
+They would have the extra time too. it's not like it is extra time for some. it's there for all.
+But in general one shouldn't report issues in rush which could result in low quality false positive findings😉
+
+{Reactions}
+👎 
+
+[06/26/2022 9:14 AM] illilli000
+QA and Gas reports are one report only, so no, they won't have more time if they've already submitted
+
+
+[06/26/2022 9:15 AM] illilli000
+and something where you've found a low/medium, but didn't have enough time to dig into deeper layers to potentially find that it's actually a high, and submitted anyway, is another case where it's unfair. Also, not everyone monitors discord, and they won't see the change in time
+
+{Reactions}
+💯 (3) 
+
+[06/26/2022 9:16 AM] 100proof
+Let's have this debate in #🐺wardens  ?
+
+{Reactions}
+👍 (2) 
+
+[06/26/2022 9:43 AM] road220
+Hey, what is the reason for that?
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2022 - ☑yieldy-jun21 [986765994049564682].txt_Files/Screenshot_from_2022-06-26_12-43-26-32719.png
+
+
+[06/26/2022 9:45 AM] 0x1f8b
+@m_Rassska is because Yieldy contract require to override the totalSupply, otherwise the balances sum and the totalSupply will have a mismatch
+
+{Reactions}
+👍 
+
+[06/26/2022 1:33 PM] 0xean
+Thanks to all the wardens here!
+
+{Reactions}
+🙏 (4) 
+
+[06/26/2022 4:28 PM] acegawd
+@Toshi @0xean who's available for a DM?
+
+
+[06/26/2022 4:28 PM] Toshi#4576
+I am
+
+
+[06/26/2022 7:52 PM] fudgydrs
+After the time ends, what are some medium and above risks tou guys found?
+
+I'm typically under the impression rugable mechanics on the behalf of the owner are low, but those were the only ones I saw.
+
+
+[06/26/2022 8:00 PM] illilli000
+we're not allowed to publicly discuss findings until the final report is published
+
+{Reactions}
+same (2) 
+
+[06/26/2022 8:02 PM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Yieldy** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the **Yieldy** team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+
+[06/26/2022 8:06 PM] fudgydrs
+Ahh, so gotta wait till our group report or review past findings for examples
+
+
+[06/26/2022 9:14 PM] cryptphi
+Yeah, Writeups and discussions are only allowed for contests whose reports have been published.... so for meantime you can review your findings personally as well as read old reports from C4 website
+
+
+[06/28/2022 7:30 PM] ethan1elohim
+Here’s a tweet from ShapeShift main - feel free to share 🙂 @here 
+https://twitter.com/ShapeShift/status/1541848877887676416
+
+{Embed}
+ShapeShift 🦊 (@ShapeShift)
+https://twitter.com/ShapeShift/status/1541848877887676416
+The @code4rena competition is complete!
+
+Thank you to all the auditors who participated in helping make #ShapeShift Yieldy vaults as secure as possible 👏
+
+For more information, check out our #yieldy repository 🏗️🦊
+
+https://t.co/tkVmNjIWY8
+Twitter
+
+
+[07/22/2022 2:28 PM] ajtra#5030
+any update? close to one month since the contest finished
+
+
+[07/22/2022 2:30 PM] itsmetechjay
+It's currently in judging.
+
+
+[07/22/2022 2:33 PM] ajtra#5030
+any date estimated?
+
+
+[07/29/2022 11:14 AM] ajtra#5030
+any update?
+
+
+[08/25/2022 1:42 PM] Ignacio#9604
+any update?
+
+
+[08/25/2022 8:26 PM] haruxe
+your pfp tetsuo?
+
+{Reactions}
+✅ 
+
+[08/25/2022 11:04 PM] Ignacio#9604
+are you a fan of akira?
+
+
+[08/25/2022 11:05 PM] haruxe
+I am on volume 6 of the manga, I love it
+
+
+[08/27/2022 12:13 AM] 100proof
+IGNACIO! ... Kaneda!
+
+{Reactions}
+🏍️ nice 
+
+[09/02/2022 2:55 PM] neumoxx
+Hi! Any news on this one?
+
+
+[09/02/2022 3:25 PM] itsmetechjay
+We are finalizing the judging for this one and if all goes well, hope to announce awards sometime next week.
+
+{Reactions}
+hi5 (3) 
+
+[09/06/2022 8:49 PM] itsmetechjay
+🤑 🎉 Awards for **Yieldy:**
+
+$5,457.45 USDC » @Roman 
+$4,126.36 USDC » @Picodes | Angle 
+$3,436.45 USDC » @0x1f8b 
+$2,900.64 USDC » @0x52 - Away Until 8/9 
+$2,790.66 USDC » @cccz 
+$2,635.74 USDC » @unforgiven 
+$2,433.18 USDC » @IllIllI 
+$2,209.07 USDC » @csanuragjain 
+$1,960.71 USDC » @Bernd 
+$1,817.55 USDC » @rfa 
+$1,623.07 USDC » BowTiedWardens (@BowTiedHeron, @BowTiedPickle, @m4rio.eth, @Dravee, @BowTiedFirefox)
+$1,332.45 USDC » @Alex The Entreprenerd 
+$1,238.27 USDC » @Sloth 
+$1,238.27 USDC » @sashik_eth 
+$1,214.50 USDC » @minhquanym 
+$1,211.70 USDC » @skoorch 
+$859.19 USDC » WatchPug (@JtP | WATCHPUG, @Ming | WATCHPUG)
+$704.54 USDC » @MiloTruck 
+$657.91 USDC » 0x29A (@anon, @Rotcivegaf)
+$599.87 USDC » @kamensec 
+$552.09 USDC » @hansfriese 
+$527.59 USDC » @StErMi 
+$448.22 USDC » @pashov 
+$440.98 USDC » @shung🌞🌈 
+$406.89 USDC » @Chom 
+$380.32 USDC » @0xNineDec 
+$368.53 USDC » @zzzitron 
+$350.80 USDC » @robee 
+$331.58 USDC » @hake | SmartSek 
+$311.16 USDC » @TrungOre 
+$241.48 USDC » @furchill 
+$199.94 USDC » @DefSec 
+$199.16 USDC » @thinklab 
+$199.10 USDC » @kenta 
+$165.23 USDC » @0x1337 
+$156.94 USDC » hubble (ksk2345, @shri4net)
+$152.65 USDC » PwnedNoMore  (@izhuer, @ItsNio, @papr1ka2)
+$145.95 USDC » @m_Rassska 
+$125.60 USDC » @Django | Saloon Finance 
+$125.59 USDC » @Metatron 
+$119.25 USDC » @neumo 
+$119.21 USDC » @lucyoa 
+$113.11 USDC » @_Adam 
+$111.20 USDC » @0xNazgul 
+$95.50 USDC » @joestakey 
+$87.87 USDC » @TomJ 
+$81.49 USDC » @FudgyDRS 
+$81.31 USDC » @scaraven 
+$81.31 USDC » @Bnke 
+$81.31 USDC » @fatherOfBlocks 
+$81.29 USDC » @antonttc 
+$81.19 USDC » GimelSec (@rayn | GimelSec, @sces60107 | GimelSec)
+$81.18 USDC » @PENGUN 
+$80.04 USDC » 0xf15ers (@remora0, @twojoy)
+$80.04 USDC » @Waze 
+$79.86 USDC » @ladboy233小伙子 
+$79.85 USDC » @Sm4rty 
+$79.74 USDC » @Noah3o6 
+$79.73 USDC » @Funen 
+$79.73 USDC » @Limbooo 
+$79.73 USDC » @sikorico 
+$79.73 USDC » @aga7hokakological 
+$79.72 USDC » @delfin454000 
+$79.72 USDC » @ElKu 
+$79.72 USDC » @JC
+$79.72 USDC » @Kaiziron 
+$79.72 USDC » @simon135 
+$79.71 USDC » mics
+$79.71 USDC » @UnusualTurtle 
+$79.71 USDC » @0xmint 
+$72.44 USDC » @ych18 
+$60.79 USDC » @pedr02b2 
+$59.96 USDC » @ajtra 
+$59.96 USDC » @Fabble 
+$54.61 USDC » @0xc0ffEE 
+$53.16 USDC » @cryptphi 
+$53.16 USDC » @dipp 
+$53.16 USDC » @samruna 
+$53.16 USDC » @ak1 
+$53.14 USDC » @100proof 
+$53.14 USDC » @PumpkingWok 
+$53.14 USDC » @tchkvsky
+
+{Reactions}
+🎉 🐺 🙌 
+
+[09/06/2022 8:49 PM] itsmetechjay
+$34.71 USDC » @0xkatana 
+$34.71 USDC » @0xKitsune 
+$28.15 USDC » @RedOneN 
+$28.15 USDC » @Tomio 
+$26.71 USDC » @Nyamcil 
+$26.71 USDC » @Randyyy 
+$26.58 USDC » @c3phas 
+$26.57 USDC » @8olidity 
+$26.57 USDC » @Fitraldys 
+$26.57 USDC » @saian 
+$26.57 USDC » @0v3rf10w 
+$26.57 USDC » @ACai 
+$26.57 USDC » @bardamu 
+$26.57 USDC » @sach1r0 
+$26.57 USDC » @s3cunDa 
+$26.57 USDC » @slywaters 
+$26.57 USDC » @Ignacio 
+
+🏁 Findings summary
+---------------------------
+High risk findings: 12 total, 4 unique
+Med risk findings: 65 total, 27 unique
+Gas optimization reports: 70 
+QA reports: 70
+
+Awards will be distributed on Polygon within the next 1-2 weeks. Congratulations all! 💸 💸 💸
+
+
+[09/13/2022 7:03 AM] ajtra#5030
+it's the awarding send out?
+
+
+[09/13/2022 2:14 PM] itsmetechjay
+Yep awards have been sent.  See: https://discord.com/channels/810916927919620096/810929015509483554/1018973145589354616
+
+
+[09/13/2022 2:24 PM] ak19966
+I received lesser award than what was mentioned
+
+
+[09/13/2022 2:28 PM] itsmetechjay
+will take a look.
+
+
+[09/15/2022 3:55 PM] kamensec
+literally just saw a random 600 in my wallet and was curious which cat dropped that small bag ❤️ completely forgot about this contest haha!
+
+{Reactions}
+😂 (8) 🎉 (5) 💸 (4) 💰 deal_with_it_cat 
+
+==============================================================
+Exported 94 message(s)
+==============================================================
